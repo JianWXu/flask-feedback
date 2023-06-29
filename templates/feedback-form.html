@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Secret{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+
+    {{form.hidden_tag()}}
+
+    {% for f in form if f.widget.input_type != "hidden" %}
+        <p>
+            {{f.label}}
+            {{f}}
+            
+
+            {% for e in f.errors %}
+            {{e}}
+            {% endfor %}
+        </p>       
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+{% endblock %}

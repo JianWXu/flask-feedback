@@ -3,14 +3,20 @@ from wtforms import StringField, PasswordField, EmailField
 
 class AddUserForm(FlaskForm):
 
-    username = StringField("username")
-    password = PasswordField("password")
-    email = EmailField("email")
-    first_name = StringField("first_name")
-    last_name = StringField("last_name")
+    username = StringField("Username")
+    password = PasswordField("Password")
+    email = EmailField("Email")
+    first_name = StringField("First Name")
+    last_name = StringField("Last Name")
 
 
 class LoginForm(FlaskForm):
 
-    username = StringField("username")
-    password = PasswordField("password")
+    username = StringField("Username")
+    password = PasswordField("Password")
+
+
+class FeedbackForm(FlaskForm):
+
+    title = StringField("Title")
+    content = StringField("Content")

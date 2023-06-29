@@ -22,6 +22,9 @@ class User(db.Model):
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(30), nullable=False)
 
+    feedbacks = db.relationship(
+        'Feedback', backref='users', cascade="all, delete")
+
     @classmethod
     def register(cls, username, pwd, email, first_name, last_name):
         hashed = bcrypt.generate_password_hash(pwd)
@@ -47,5 +50,3 @@ class Feedback(db.Model):
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
     username = db.Column(db.ForeignKey('users.username'))
-
-    users = db.relationship('User', backref='feedbacks')

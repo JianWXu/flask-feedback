@@ -11,7 +11,6 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
     {% if 'user_id' in session %}
         <a class="navbar-brand" href="/logout">Logout</a>
-        <a class="navbar-brand" href="/secret">Secret</a>
     {% endif %}
     {% if 'user_id' not in session %}
         <a class="navbar-brand" href="/login">Login</a>

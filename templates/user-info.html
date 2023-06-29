@@ -6,5 +6,20 @@
 <h3>{{user.username}}</h3>
 <p>{{user.email}}</p>
 <p>{{user.first_name}} {{user.last_name}}</p>
+<form action="/feedback/{{user.feedbacks_id}}/delete" method="POST">
+<ul>
+{% for feedback in user.feedbacks %}
 
+<li><a href="/feedback/{{feedback.id}}/update">{{feedback.title}}</a>
+<button type="submit" class="btn btn-danger" formaction="/feedback/{{feedback.id}}/delete" formmethod="POST">Delete</button></li>
+{% endfor %}
+</ul>
+</form>
+
+<a href="/users/{{user.username}}/feedback/add">Add Feedback</a>
+<form action="/users/{{user.username}}/delete" method="POST">
+    <button type="submit" class="btn btn-danger">Delete User</button>
+
+
+</form>
 {% endblock %}
